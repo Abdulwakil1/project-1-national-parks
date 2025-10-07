@@ -42,7 +42,7 @@ The following **additional** features are implemented:
 - [x] **“Home” button** reliably scrolls back to the top hero section from any page
 - [x] **“View All” button** displays all park cards directly from the details page
 - [x] **Factual, extended descriptions** for each park to make content informative and engaging
-- [x] **8 U.S. National Parks included** (Yellowstone, Yosemite, Grand Canyon, Zion, Glacier, Rocky,Smokey, Everglades)
+- [x] **8 U.S. National Parks included** (Yellowstone, Yosemite, Grand Canyon, Zion, Glacier, Rocky, Smokey, Everglades)
 - [x] **Hero background with gradient overlay** for a cinematic first impression
 - [x] **Consistent typography** (Merriweather for titles, Inter for body text) for readability and design coherence
 - [x] **Fully responsive card grid** (2 → 3 → 4 columns depending on screen size)
