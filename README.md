@@ -1,8 +1,8 @@
-# WEB103 Project 1 - _National Parks Explorer_
+# WEB103 Project 2 - National Parks Explorer
 
 Submitted by: **Abdul Wakil Najibi**
 
-About this web app: **National Parks Explorer is a sleek, modern web application where users can discover and explore U.S. National Parks. The homepage features a cinematic hero with responsive park cards. Users can click on each park card to view a detailed page with a larger image, park information, and descriptions. The design emphasizes readability, a friendly user experience, and a clean modern theme using Tailwind CSS with light custom global styles.**
+About this web app: **National Parks Explorer (Full-Stack Edition) is a continuation of Project 1, enhanced with a real PostgreSQL database and Express backend. Users can browse U.S. National Parks through a clean, cinematic interface. Each park card dynamically loads from the database, and clicking a card opens a detailed page with full park information. The project demonstrates a complete connection between frontend and backend — from database to dynamic content rendering — while maintaining the same modern, responsive UI built with Tailwind CSS.**
 
 Time spent: **Approximately 30–40 hours**
 
@@ -13,35 +13,43 @@ Time spent: **Approximately 30–40 hours**
 The following **required** functionality is completed:
 
 - [x] **The web app uses only HTML, CSS (Tailwind + minimal global CSS), and JavaScript without a frontend framework**
-- [x] **The web app displays a title**
-- [x] **The web app displays at least five unique list items, each with at least three displayed attributes (title, state, and image with description)**
-- [x] **The user can click on each item in the list to see a detailed view of it, including all database fields**
-- [x] **Each detail view has a unique endpoint (e.g., `/parks/1`, `/parks/2`)**
-- [x] **The web app serves an appropriate 404 page when no matching route is defined**
-- [x] **The web app is styled using Tailwind (instead of PicoCSS)**
+- [x] **The web app is connected to a PostgreSQL database, with an appropriately structured database table for the list items**
+- [x] **NOTE: Walkthrough GIF includes a view of the Render dashboard demonstrating the Postgres database availability**
+- [x] **NOTE: Walkthrough GIF includes a terminal demonstration of table contents using `SELECT * FROM parks;`**
+- [x] **The app displays a list of National Parks fetched from the database**
+- [x] **Each park card includes at least three attributes (name, state, image)**
+- [x] **Each park card links to a detailed view at `/parks/:id` showing all attributes**
+- [x] **Each detail view dynamically loads data from `/parks/:id/data`**
+- [x] **The Express server properly handles unknown routes with a 404 page**
+- [x] **The app’s design remains modern and fully responsive**
 
 ---
 
 The following **optional** features are implemented:
 
-- [x] Park items are displayed as **responsive cards** with hover effects rather than plain lists
-- [x] Hero background with gradient overlay creates a **cinematic landing experience**
-- [x] Cards and header include **translucent overlays** for better readability
+- [x] The user can **search** for a park by name or state
+- [x] Added a **“View All”** button on detail pages for easy navigation
+- [x] Smooth scrolling and cinematic hover effects on cards
 - [x] Smooth scrolling and fixed background for modern feel
 
 ---
 
 The following **additional** features are implemented:
 
+- [x] **Connection pool configuration** with environment variables for secure database access
+- [x] **Clear separation of concerns** using modular controllers and routes
+- [x] **Dynamic JSON endpoints** for both list and single park data
 - [x] **“Home” button** reliably scrolls back to the top hero section from any page
 - [x] **“View All” button** displays all park cards directly from the details page
 - [x] **Factual, extended descriptions** for each park to make content informative and engaging
-- [x] **8 U.S. National Parks included** (Yellowstone, Yosemite, Grand Canyon, Zion, Glacier, Acadia, Rocky Mountain, Everglades)
-- [x] **Consistent typography** (Merriweather for titles, Inter for body text) to enhance readability and design coherence
-- [x] **Fully responsive design** with cards adapting from 2 → 3 → 4 per row depending on screen size
+- [x] **8 U.S. National Parks included** (Yellowstone, Yosemite, Grand Canyon, Zion, Glacier, Rocky,Smokey, Everglades)
+- [x] **Hero background with gradient overlay** for a cinematic first impression
+- [x] **Consistent typography** (Merriweather for titles, Inter for body text) for readability and design coherence
+- [x] **Fully responsive card grid** (2 → 3 → 4 columns depending on screen size)
 - [x] **Hover effects** on cards and buttons for polished interactivity
-- [x] **Custom error handling** for missing or invalid routes
-- [x] Sleek, minimalist UI with **dark background theme** to make park images pop
+- [x] **Custom 404 page** for missing or invalid routes with cohesive styling
+- [x] Sleek, minimalist UI with a **dark background theme** to make park images pop
+- [x] **Clickable Logo** — The site logo now links back to the **Home page** for intuitive navigation from any view.
 
 ---
 
@@ -64,12 +72,21 @@ GIF created with … Add GIF tool here
 
 Some challenges included:
 
-- Ensuring the **hero background only applied to the homepage** without affecting the details page.
-- Balancing **text readability vs. image visibility** with gradient overlays.
-- Debugging static file paths for images served from `public/` and Express.
-- Designing a **responsive grid** that feels cinematic but not overcrowded (settled on 2–3–4 column layout).
-- Implementing **smooth navigation** back to homepage and consistent “View All” functionality.
-- Carefully fine-tuning the **UX and aesthetics** to keep the project modern, minimal, and user-friendly.
+- Debugging the **PostgreSQL connection string** between local and hosted environments.
+
+- Ensuring all **dynamic park routes** (/parks/:id) correctly rendered the same park.html with the proper data.
+
+- Managing **asynchronous fetch requests** to load content smoothly before rendering.
+
+- Maintaining **design consistency** from Project 1 while migrating to a real database backend.
+
+- Achieving a **modular Express structure** with clean controllers, routes, and file separation.
+
+- Ensuring the **hero background only applied to the homepage** without affecting details pages.
+
+- Balancing **text readability vs. image visibility** using gradient overlays and responsive layouts.
+
+- Fine-tuning **UX and visual aesthetics** for a modern, minimal, and cinematic feel.
 
 ---
 

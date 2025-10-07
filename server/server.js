@@ -1,4 +1,5 @@
 import express from "express";
+import "./config/dotenv.js"; // loads environment variables
 
 // Import parks router
 import parksRouter from "./routes/parks.js";

@@ -105,6 +105,40 @@ export const renderParks = async () => {
 
     parksSection.appendChild(grid);
 
+    // 🔍 Enhanced search functionality with "No results" message
+    const searchInput = document.getElementById("search-input");
+    if (searchInput) {
+      // Create and append "No results" message
+      const noResults = document.createElement("p");
+      noResults.textContent = "No parks match your search.";
+      noResults.className = "text-center text-gray-400 italic mt-6 hidden";
+      // parksSection.appendChild(noResults);
+      parksSection.insertBefore(noResults, grid);
+
+      searchInput.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase();
+        const cards = Array.from(grid.children); // Only top-level cards
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const name =
+            card.querySelector("h3")?.textContent.toLowerCase() || "";
+          const stateElements = card.querySelectorAll("p");
+          const stateText = Array.from(stateElements)
+            .map((p) => p.textContent.toLowerCase())
+            .join(" ");
+
+          const match = name.includes(query) || stateText.includes(query);
+
+          card.style.display = match ? "" : "none";
+          if (match) visibleCount++;
+        });
+
+        // Toggle "No results" visibility
+        noResults.classList.toggle("hidden", visibleCount > 0);
+      });
+    }
+
     if (window.location.hash === "#parks-section") {
       parksSection.scrollIntoView({ behavior: "smooth" });
     }

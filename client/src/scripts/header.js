@@ -6,21 +6,6 @@ if (!header) {
   console.error("<header> element not found on page.");
   // still continue — nothing to append to
 }
-// parks.js handles this at the bottom
-// Render parks only when parks-section exists (so detail pages are unaffected)
-// let parksRendered = false;
-// window.addEventListener("DOMContentLoaded", async () => {
-//   // Only render parks if the page actually has the parks section.
-//   // This prevents trying to render the parks grid on detail pages (e.g. /parks/3).
-//   const parksSection = document.getElementById("parks-section");
-//   if (parksSection) {
-//     try {
-//       parksRendered = await renderParks();
-//     } catch (err) {
-//       console.error("Error rendering parks on load:", err);
-//     }
-//   }
-// });
 
 // Header container
 const headerContainer = document.createElement("div");
@@ -35,6 +20,28 @@ const headerLogo = document.createElement("img");
 headerLogo.src = "/logo.png";
 headerLogo.alt = "National Parks Logo";
 headerLogo.className = "h-12 w-12 rounded-full border border-gray-700";
+headerLogo.title = "Go to Home";
+
+// Make logo a link for homepage/hero
+headerLogo.addEventListener("click", () => {
+  const isHome =
+    window.location.pathname === "/" ||
+    window.location.pathname.endsWith("index.html");
+
+  if (isHome) {
+    const hero = document.getElementById("hero-section");
+    if (hero) {
+      hero.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  } else {
+    window.location.href = "/";
+  }
+});
+
+headerLogo.classList.add("cursor-pointer", "hover:opacity-80", "transition");
+// End of logo snippet
 
 const headerTitle = document.createElement("h1");
 headerTitle.textContent = "Explore National Parks";
